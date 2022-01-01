@@ -1,0 +1,19 @@
+bookdown::bs4_book:
+  css: bs4_style.css
+  theme:
+    primary: "#096B72"
+  repo:
+    base: https://github.com/XiangyunHuang/bookdown-template
+    branch: main
+  split_bib: true
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+  toc_appendix: yes
+  toc_bib: yes
+  template: null
+  quote_footer: ["\\hspace*{\\fill} ", ""]
+bookdown::epub_book: default

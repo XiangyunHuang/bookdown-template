@@ -1,0 +1,21 @@
+book_filename: "bookdown-template"
+new_session: true
+before_chapter_script: _common.R
+delete_merged_file: true
+language:
+  label:
+    fig: "图 "
+    tab: "表 "
+    thm: "定理 "
+  ui:
+    edit: "编辑"
+    chapter_name: ["第 ", " 章"]
+    appendix_name: ["附录 "]
+
+rmd_files:
+- "index.Rmd"
+
+- "01-intro.Rmd"                     # 前言
+- "90-appendix.Rmd"                  # 附录
+
+- "99-references.Rmd"
