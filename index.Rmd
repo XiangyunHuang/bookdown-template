@@ -28,6 +28,7 @@ hyperrefoptions:
   - bookmarksnumbered=true
 keywords: 
   - R 语言
+  - 数据科学
 link-citations: yes
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
@@ -44,38 +45,69 @@ description: |
 
 这是中文书籍模版，主要编辑工具有 knitr [@xie2015] 和 bookdown [@xie2016]，Zotero 提供参考文献的风格样式文件及预览 <https://www.zotero.org/styles>。
 
+## 设置字体 {#setup-fonts}
 
-## Usage 
+系统上安装 Noto 系列的四款字体，依次是英文衬线字体，英文无衬线字体，简体中文宋体，简体中文黑体，其中，两款英文字体包含正常、粗体、斜体、粗斜体四种字型。
 
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
-
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
-
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
-
-## Render book
-
-You can render the HTML version of this example book without changing anything:
-
-1. Find the **Build** pane in the RStudio IDE, and
-
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
-
-Or build the book from the R console:
-
-```{r, eval=FALSE}
-bookdown::render_book()
+```bash
+brew install --cask font-noto-serif font-noto-sans
+brew install --cask font-noto-serif-cjk-sc font-noto-sans-cjk-sc
 ```
 
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
+安装后，需要先调用 **sysfonts** 包注册字体到 R 环境，以便绘图时使用。
 
-## Preview book
+```{r register-fonts, eval=FALSE}
+sysfonts::font_add(
+  family = "Noto Serif",
+  regular = "NotoSerif-Regular.ttf",
+  bold = "NotoSerif-Bold.ttf",
+  italic = "NotoSerif-Italic.ttf",
+  bolditalic = "NotoSerif-BoldItalic.ttf"
+)
+sysfonts::font_add(
+  family = "Noto Serif CJK SC",
+  regular = "NotoSerifCJKsc-Regular.otf",
+  bold = "NotoSerifCJKsc-Bold.otf"
+)
+```
 
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
+**showtext** 包调用系统安装的中英文字体，如图 \@ref(fig:quakes) 所示，横纵坐标轴标题使用黑体，主标题黑体加粗，边空文本是宋体，图内注释也是宋体，坐标轴刻度值用无衬线字体。
+
+```{r quakes, fig.cap="斐济是一个太平洋上的岛国", fig.width=5, fig.height=5, fig.showtext=TRUE, out.width="75%"}
+colorize_numeric <- function(x) {
+  n <- 9 # 设置颜色梯度数目
+  scales::col_numeric(palette = "viridis", domain = range(x))(x)
+}
+quakes <- transform(quakes, color = colorize_numeric(mag))
+# 绘图
+plot(data = quakes, lat ~ long, col = color, ann = FALSE, family = "Noto Serif")
+title(xlab = "经度", ylab = "纬度", main = "地震带", family = "Noto Sans CJK SC")
+text(x = 176, y = -25, labels = "4.9 级", pos = 1, family = "Noto Serif CJK SC")
+points(x = 174.21, y = -21.14, pch = 3, lwd = 2, cex = 1, col = "Orange")
+arrows(
+  x0 = 176, y0 = -25, x1 = 174.21, y1 = -21.14,
+  length = 0.15, angle = 15
+)
+mtext(text = "斐济位于环太平洋火山地震带", side = 3, family = "Noto Serif CJK SC")
+```
+
+
+
+## 安装 R 包 {#install-packages}
+
+本书使用 [Bootstrap](https://getbootstrap.com/) 样式主题，因此，除了 **bookdown** 外，需要安装额外的三个 R 包：
 
 ```{r eval=FALSE}
-bookdown::serve_book()
+install.packages(c("downlit", "bslib", "xml2"))
 ```
+
+另外，为了处理中文字体，需要安装 showtext 包：
+
+```{r eval=FALSE}
+install.packages("showtext")
+```
+
+
 
 
 ```{r include=FALSE, cache=FALSE}

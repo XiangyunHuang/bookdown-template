@@ -15,6 +15,7 @@ language:
 rmd_files:
 - "index.Rmd"
 
+- "00-foundation.Rmd"
 - "01-intro.Rmd"                     # 前言
 - "90-appendix.Rmd"                  # 附录
 
