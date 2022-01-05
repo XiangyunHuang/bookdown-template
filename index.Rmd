@@ -9,6 +9,7 @@ fontsize: 10pt
 graphics: yes
 mathspec: yes
 colorlinks: yes
+toccolor: FireBrick
 lot: yes
 lof: yes
 geometry:
@@ -73,14 +74,14 @@ sysfonts::font_add(
 
 **showtext** 包调用系统安装的中英文字体，如图 \@ref(fig:quakes) 所示，横纵坐标轴标题使用黑体，主标题黑体加粗，边空文本是宋体，图内注释也是宋体，坐标轴刻度值用无衬线字体。
 
-```{r quakes, fig.cap="斐济是一个太平洋上的岛国", fig.width=5, fig.height=5, fig.showtext=TRUE, out.width="75%"}
+```{r quakes, fig.cap="斐济是一个太平洋上的岛国", fig.width=5, fig.height=5, fig.showtext=TRUE, out.width="75%", fig.align='center'}
 colorize_numeric <- function(x) {
   n <- 9 # 设置颜色梯度数目
   scales::col_numeric(palette = "viridis", domain = range(x))(x)
 }
 quakes <- transform(quakes, color = colorize_numeric(mag))
 # 绘图
-plot(data = quakes, lat ~ long, col = color, ann = FALSE, family = "Noto Serif")
+plot(data = quakes, lat ~ long, col = color, ann = FALSE, family = "sans")
 title(xlab = "经度", ylab = "纬度", main = "地震带", family = "Noto Sans CJK SC")
 text(x = 176, y = -25, labels = "4.9 级", pos = 1, family = "Noto Serif CJK SC")
 points(x = 174.21, y = -21.14, pch = 3, lwd = 2, cex = 1, col = "Orange")
