@@ -111,12 +111,20 @@ mtext(text = "斐济位于环太平洋火山地震带", side = 3, family = "Noto
 install.packages(c("downlit", "bslib", "xml2"))
 ```
 
-另外，为了处理中文字体，需要安装 showtext 包：
+另外，为了处理中文字体，需要安装 **showtext** 包：
 
 ```{r eval=FALSE}
 install.packages("showtext")
 ```
 
+运行环境信息如下：
+
+```{r}
+xfun::session_info(packages = c(
+  "knitr", "rmarkdown", "bookdown",
+  "showtext", "sysfonts"
+))
+```
 
 
 
