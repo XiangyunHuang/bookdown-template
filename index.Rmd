@@ -33,9 +33,7 @@ keywords:
 link-citations: yes
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  This is a minimal example of using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::bs4_book,
-  set in the _output.yml file.
+  这是一个简单的中文书籍模版，顺便介绍了如何使用中英文字体，参考文献样式等。
 ---
 
 \mainmatter
@@ -44,7 +42,9 @@ description: |
 \chaptermark{欢迎}
 \index{bookdown}
 
-这是中文书籍模版，主要编辑工具有 knitr [@xie2015] 和 bookdown [@xie2016]，Zotero 提供参考文献的风格样式文件及预览 <https://www.zotero.org/styles>。
+::: {.rmdtip data-latex="{提示}"}
+这是中文书籍模版，源文件的编译和组织使用 **knitr** [@xie2015] 和 **bookdown** [@xie2016]，参考文献的样式文件来自 [Zotero](https://www.zotero.org/styles)。
+:::
 
 ## 设置字体 {#setup-fonts}
 
@@ -76,13 +76,13 @@ sysfonts::font_add(
 
 ```{r}
 #| quakes,
-#| echo = FALSE,
+#| echo=FALSE,
 #| fig.align='center',
 #| fig.showtext=TRUE,
-#| fig.width = 5, fig.height = 5,
+#| fig.width=5, fig.height=5,
 #| out.width="75%",
-#| fig.caption = "斐济是一个太平洋上的岛国",
-#| fig.alt = "太平洋地震带"
+#| fig.cap="斐济是一个太平洋上的岛国",
+#| fig.alt="太平洋地震带"
 
 colorize_numeric <- function(x) {
   n <- 9 # 设置颜色梯度数目
@@ -117,7 +117,7 @@ install.packages(c("downlit", "bslib", "xml2"))
 install.packages("showtext")
 ```
 
-运行环境信息如下：
+编译本书 R Markdown 源文件的过程中，使用的 R 包和软件信息如下：
 
 ```{r}
 xfun::session_info(packages = c(

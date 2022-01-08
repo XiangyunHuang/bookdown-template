@@ -1,11 +1,25 @@
 bookdown::bs4_book:
-  css: bs4_style.css
+  css: [bs4_style.css, style.css]
   theme:
     primary: "#096B72"
   repo:
     base: https://github.com/XiangyunHuang/bookdown-template
     branch: main
   split_bib: true
+# bookdown::gitbook:
+#   css: style.css
+#   config:
+#     toc:
+#       collapse: none
+#       before: |
+#         <li><a href="./">中文书示例</a></li>
+#       after: |
+#         <li><a href="https://bookdown.org" target="blank">本书由 bookdown 强力驱动</a></li>
+#     download: [pdf, epub]
+#     edit: https://github.com/XiangyunHuang/bookdown-template/edit/main/%s
+#     sharing:
+#       github: yes
+#       facebook: no
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
