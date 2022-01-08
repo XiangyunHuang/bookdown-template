@@ -4,7 +4,7 @@ author: "黄湘云"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-papersize: b5
+papersize: a4
 fontsize: 10pt
 graphics: yes
 mathspec: yes
@@ -74,7 +74,16 @@ sysfonts::font_add(
 
 **showtext** 包调用系统安装的中英文字体，如图 \@ref(fig:quakes) 所示，横纵坐标轴标题使用黑体，主标题黑体加粗，边空文本是宋体，图内注释也是宋体，坐标轴刻度值用无衬线字体。
 
-```{r quakes, fig.cap="斐济是一个太平洋上的岛国", fig.width=5, fig.height=5, fig.showtext=TRUE, out.width="75%", fig.align='center'}
+```{r}
+#| quakes,
+#| echo = FALSE,
+#| fig.align='center',
+#| fig.showtext=TRUE,
+#| fig.width = 5, fig.height = 5,
+#| out.width="75%",
+#| fig.caption = "斐济是一个太平洋上的岛国",
+#| fig.alt = "太平洋地震带"
+
 colorize_numeric <- function(x) {
   n <- 9 # 设置颜色梯度数目
   scales::col_numeric(palette = "viridis", domain = range(x))(x)

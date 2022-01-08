@@ -1,10 +1,8 @@
 \usepackage[heading=true, fontset=fandol, UTF8]{ctex}
-\usepackage[scale=0.65]{sourcecodepro}
-% \usepackage[scale=0.85]{sourcecodepro}
+\usepackage[scale=0.85]{sourcecodepro}
 \usepackage[lotdepth=2, lofdepth=2]{subfig}
 \usepackage{booktabs}
 % https://github.com/CTeX-org/ctex-kit/issues/331
-% Warning: You may set `Scale=0.7799' to CJKfamily `\CJKttdefault', or set `Scale=1.2821' to family `\ttdefault'.
 \RecustomVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},formatcom=\xeCJKVerbAddon}
 
 \usepackage[labelfont=bf,singlelinecheck=off,textfont=it,justification=centering]{caption}
@@ -30,6 +28,8 @@ addtohook={%
   pdfsubject={R 语言数据科学之路},
 }
 
+\usepackage[toc]{multitoc}
+% \usepackage[toc,lof,lot]{multitoc}
 \usepackage[skins]{tcolorbox}
 
 \definecolor{colortip}{RGB}{81,183,73}
