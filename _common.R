@@ -21,6 +21,13 @@ sysfonts::font_add(
   regular = "NotoSansCJKsc-Regular.otf",
   bold = "NotoSansCJKsc-Bold.otf"
 )
+## 等宽黑体
+sysfonts::font_add(
+  family = "Noto Sans Mono CJK SC",
+  regular = "NotoSansMonoCJKsc-Regular.otf",
+  bold = "NotoSansMonoCJKsc-Bold.otf"
+)
+
 sysfonts::font_add(
   family = "Noto Serif",
   regular = "NotoSerif-Regular.ttf",

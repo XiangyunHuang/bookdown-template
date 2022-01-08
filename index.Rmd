@@ -90,9 +90,9 @@ colorize_numeric <- function(x) {
 }
 quakes <- transform(quakes, color = colorize_numeric(mag))
 # 绘图
-plot(data = quakes, lat ~ long, col = color, ann = FALSE, family = "sans")
+plot(data = quakes, lat ~ long, col = color, ann = FALSE, family = "Noto Sans")
 title(xlab = "经度", ylab = "纬度", main = "地震带", family = "Noto Sans CJK SC")
-text(x = 176, y = -25, labels = "4.9 级", pos = 1, family = "Noto Serif CJK SC")
+text(x = 176, y = -25, labels = "4.9 级", pos = 1, family = "Noto Sans Mono CJK SC")
 points(x = 174.21, y = -21.14, pch = 3, lwd = 2, cex = 1, col = "Orange")
 arrows(
   x0 = 176, y0 = -25, x1 = 174.21, y1 = -21.14,
