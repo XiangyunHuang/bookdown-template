@@ -1,4 +1,4 @@
---- 
+---
 title: "中文书籍的 bookdown 模版"
 author: "黄湘云"
 date: "`r Sys.Date()`"
@@ -38,19 +38,19 @@ description: |
 
 \mainmatter
 
-# 欢迎 {#welcome .unnumbered}
+# 欢迎 {#chap-welcome .unnumbered}
+
 \chaptermark{欢迎}
-\index{bookdown}
 
 ::: {.rmdtip data-latex="{提示}"}
 这是中文书籍模版，源文件的编译和组织使用 **knitr** [@xie2015] 和 **bookdown** [@xie2016]，参考文献的样式文件来自 [Zotero](https://www.zotero.org/styles)。
 :::
 
-## 设置字体 {#setup-fonts}
+## 设置字体 {#sec-setup-fonts .unnumbered}
 
 系统上安装 Noto 系列的四款字体，依次是英文衬线字体，英文无衬线字体，简体中文宋体，简体中文黑体，其中，两款英文字体包含正常、粗体、斜体、粗斜体四种字型。
 
-```bash
+``` bash
 brew install --cask font-noto-serif font-noto-sans
 brew install --cask font-noto-serif-cjk-sc font-noto-sans-cjk-sc
 ```
@@ -101,9 +101,7 @@ arrows(
 mtext(text = "斐济位于环太平洋火山地震带", side = 3, family = "Noto Serif CJK SC")
 ```
 
-
-
-## 安装 R 包 {#install-packages}
+## 安装 R 包 {#sec-install-packages .unnumbered}
 
 本书使用 [Bootstrap](https://getbootstrap.com/) 样式主题，因此，除了 **bookdown** 外，需要安装额外的三个 R 包：
 
@@ -121,12 +119,9 @@ install.packages("showtext")
 
 ```{r}
 xfun::session_info(packages = c(
-  "knitr", "rmarkdown", "bookdown",
-  "showtext", "sysfonts"
+  "knitr", "rmarkdown", "bookdown", "showtext", "sysfonts", "downlit"
 ))
 ```
-
-
 
 ```{r include=FALSE, cache=FALSE}
 # automatically create a bib database for R packages
