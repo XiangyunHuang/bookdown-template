@@ -31,3 +31,4 @@ bookdown::pdf_book:
   template: null
   quote_footer: ["\\hspace*{\\fill} ", ""]
 bookdown::epub_book: default
+bookdwon::word_document2: default
